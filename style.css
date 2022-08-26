@@ -1,0 +1,88 @@
+html {
+    background-color: rgb(24,25,26);
+    color: rgb(227,247,255);
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    padding: .5em 1em;
+}
+
+h1,h2 {
+    text-align: center;
+}
+div {
+    margin: 0 10%;
+}
+input {
+    display: block;
+    padding: .5em;
+    margin: .5em;
+    background-color: rgb(22,27,34);
+    color: rgb(227,247,255);
+    border-radius: 5px;
+}
+::placeholder {
+    color: rgb(41, 41, 41);	
+}
+#loadGIF {
+    width: 200px;
+    height: 200px;
+    margin: 0 0 0 3.5em;
+}
+button {
+    display: block;
+    margin: 2em auto;
+    padding: 1em;
+    border: 1px solid white;
+    background-color: rgb(33,38,45);
+    border-radius: 5px;
+    color: rgb(227,247,255);
+}
+#submit {
+    background-color: rgb(42,137,54);
+    border: 0px;
+    font-weight: bold;
+    padding: 1em 5em;
+}
+
+
+section {
+    display: block;
+}
+#input, #output {
+    float: left;
+    width: 50%;
+}
+#input {
+    width: 33%;
+    margin-right: 2.5em;
+}
+#copyToClipboard {
+    bottom: 0;
+}
+span {
+    display: block;
+    font-size: 3em;
+    font-weight: bold;
+    margin: .25em 0;
+    text-align: center;
+}
+#lastCheckIn {
+    display: block;
+    font-size: 1em;
+}
+#siteCode {
+    font-size: 1em;
+}
+.hidden {
+    display: none;
+}
+
+#moreInfo div {
+    display: flex;
+    flex-direction: row;
+}
+
+#moreInfo h4 {
+    margin-right: 2em;
+}

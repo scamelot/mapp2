@@ -1,0 +1,57 @@
+{
+  "name": "mapp",
+  "version": "1.0.0",
+  "description": "MacAdmin Password Picker 2",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "make-mac": "electron-forge make --arch=universal",
+    "make-intel-mac": "electron-forge make --arch=x64",
+    "make-windows": "electron-forge make --platform=win32 --arch=x64",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "author": "Steve Scammon",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "electron": "^18.0.3"
+  },
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "buffer": "^6.0.3",
+    "electron-packager": "^15.4.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "jamf": "^1.0.2"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {}
+    },
+    "makers": [
+      {
+        "name": "@electron-forge/maker-squirrel",
+        "config": {
+          "name": "mapp"
+        }
+      },
+      {
+        "name": "@electron-forge/maker-zip",
+        "config": {}
+      },
+      {
+        "name": "@electron-forge/maker-deb",
+        "config": {}
+      },
+      {
+        "name": "@electron-forge/maker-rpm",
+        "config": {}
+      }
+    ]
+  }
+}
