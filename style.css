@@ -19,14 +19,14 @@ h1,h2 {
 div {
     margin: 0 10%;
 }
-input {
+/* input {
     display: block;
     padding: .5em;
     margin: .5em;
     background-color: rgb(22,27,34);
     color: rgb(227,247,255);
     border-radius: 5px;
-}
+} */
 ::placeholder {
     color: rgb(41, 41, 41);	
 }
@@ -55,14 +55,9 @@ button {
 section {
     display: block;
 }
-#input, #output {
-    float: left;
+/* #input, #output {
     width: 50%;
-}
-#input {
-    width: 33%;
-    margin-right: 2.5em;
-}
+} */
 #copyToClipboard {
     bottom: 0;
 }
