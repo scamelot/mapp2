@@ -1,3 +1,9 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
 html {
     background-color: rgb(24,25,26);
     color: rgb(227,247,255);
@@ -38,12 +44,12 @@ button {
     border-radius: 5px;
     color: rgb(227,247,255);
 }
-#submit {
+/* #submit {
     background-color: rgb(42,137,54);
     border: 0px;
     font-weight: bold;
     padding: 1em 5em;
-}
+} */
 
 
 section {
