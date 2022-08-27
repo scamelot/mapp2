@@ -2606,6 +2606,10 @@ html {
   width: 33.333333%;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -2695,6 +2699,11 @@ html {
 
 .align-middle {
   vertical-align: middle;
+}
+
+.text-amber-500 {
+  --tw-text-opacity: 1;
+  color: rgb(245 158 11 / var(--tw-text-opacity));
 }
 
 html {
