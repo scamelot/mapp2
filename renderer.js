@@ -1,3 +1,26 @@
+//Token saving
+class Token {
+    constructor(tokenString, expiry) {
+        this.tokenString = tokenString
+        this.expiry = expiry
+    }
+
+    checkExpiration() {
+        console.log('Checking expiration...')
+        let now = new Date()
+        console.log(Date.parse(this.expiry), Date.parse(now))
+        if (Date.parse(this.expiry) < Date.parse(now)) {
+            console.log('Token expired!')
+            return true
+        }
+        else {
+            console.log('Token is still valid!')
+            return false
+        }
+    }
+    
+}
+
 class Computer {
 
     constructor(blob) {
@@ -116,6 +139,8 @@ window.global = window;
 // @ts-ignore
 window.Buffer = window.Buffer || require('buffer').Buffer;
 
+
+
 const handlePress = function () {
         let serial = serialField.value
         username = usernameField.value
@@ -176,6 +201,9 @@ async function getAuthToken(username, password) {
 
 }
 
+let token = new Token('',new Date())
+
+
 async function getPotd(serial,username,password) {
     //do UI stuff
     copyButton.classList.add('hidden')
@@ -185,17 +213,20 @@ async function getPotd(serial,username,password) {
     showGIF(true)
 
     try {
-        const token = await getAuthToken(username,password)
-        if (!token) return;
-        console.log(token.token)
-
+        if (token.checkExpiration()) {
+            const request = await getAuthToken(username,password)
+            token = new Token(request.token, request.expires)
+            if (!token) return;
+            console.log('New Token:' + token.tokenString)
+        }
+        console.log('Using token:' + token.tokenString)
         potdField.innerHTML = 'Fetching, please wait...'
         try {
             const res = await fetch(`https://jamf-api.disney.com:8443/JSSResource/computers/name/${serial}`, {
                 method: 'GET',
             headers: {
                 'Accept': 'application/json',
-                'Authorization': 'Bearer ' + token.token
+                'Authorization': 'Bearer ' + token.tokenString
             }
             })
             console.log(res)
