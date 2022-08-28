@@ -4,6 +4,18 @@
 
 @tailwind utilities;
 
+@font-face {
+    font-family: 'FiraCode';
+    src: url('./FiraCode-Retina.otf') format("opentype");
+}
+#potdField {
+    font-family: 'FiraCode';
+}
+
+.code {
+    font-family: 'FiraCode', Arial, Helvetica, sans-serif !important;
+}
+
 html {
     background-color: rgb(24,25,26);
     color: rgb(227,247,255);

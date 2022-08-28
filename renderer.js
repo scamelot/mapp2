@@ -4,21 +4,21 @@ class Token {
         this.tokenString = tokenString
         this.expiry = expiry
     }
-
-    checkExpiration() {
-        console.log('Checking expiration...')
-        let now = new Date()
-        console.log(Date.parse(this.expiry), Date.parse(now))
-        if (Date.parse(this.expiry) < Date.parse(now)) {
-            console.log('Token expired!')
-            return true
-        }
-        else {
-            console.log('Token is still valid!')
-            return false
-        }
-    }
     
+}
+
+const checkExpiration = (token) => {
+    console.log('Checking expiration...')
+    let now = new Date()
+    console.log(Date.parse(token.expiry), Date.parse(now))
+    if (Date.parse(token.expiry) < Date.parse(now)) {
+        console.log('Token expired!')
+        return true
+    }
+    else {
+        console.log('Token is still valid!')
+        return false
+    }
 }
 
 class Computer {
@@ -200,8 +200,8 @@ async function getAuthToken(username, password) {
     return content
 
 }
-
-let token = new Token('',new Date())
+console.log(window.localStorage.getItem('token'))
+let token = JSON.parse(window.localStorage.getItem('token')) || new Token('',new Date())
 
 
 async function getPotd(serial,username,password) {
@@ -213,9 +213,10 @@ async function getPotd(serial,username,password) {
     showGIF(true)
 
     try {
-        if (token.checkExpiration()) {
+        if (checkExpiration(token)) {
             const request = await getAuthToken(username,password)
             token = new Token(request.token, request.expires)
+            window.localStorage.setItem('token', JSON.stringify(token))
             if (!token) return;
             console.log('New Token:' + token.tokenString)
         }
